@@ -10,15 +10,14 @@ for path in paths:
     i += 1
 print("\n")
 
-array = util.open_file(paths[6])
+array = util.open_file(paths[8])
 number_line = util.count_array(array)
 
-for line in array:
-     print(line)
+# for line in array:
+#      print(line)
 
 sorting.InsertionSort(array)
-print("\n")
-print("\n")
+
 
 for line in array:
     print(line)
