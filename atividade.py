@@ -16,8 +16,11 @@ number_line = util.count_array(array)
 # for line in array:
 #      print(line)
 
-sorting.InsertionSort(array)
 
 
-for line in array:
-    print(line)
+
+
+
+
+#comp, troca, tempo = sorting.InsertionSort(array)
+
