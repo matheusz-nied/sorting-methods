@@ -18,9 +18,8 @@ number_line = util.count_array(array)
 
 
 
-
-
-#util.print_array(array)
+comp, troca, tempo = sorting.MergeSort(array)
+util.print_array(array)
 
 
 #comp, troca, tempo = sorting.SelectionSort(array)

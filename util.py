@@ -24,11 +24,12 @@ def open_file(path):
 
 
 def count_array(file):
-    count = 0;
+    count = 0
     for linha in file:
         count += 1
     return count
 
+
 def print_array(array):
     for line in array:
-      print(line)
+        print(line)
