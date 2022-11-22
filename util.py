@@ -28,3 +28,7 @@ def count_array(file):
     for linha in file:
         count += 1
     return count
+
+def print_array(array):
+    for line in array:
+      print(line)
