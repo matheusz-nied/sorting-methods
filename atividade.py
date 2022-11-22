@@ -11,7 +11,7 @@ for path in paths:
     i += 1
 print("\n")
 
-array = util.open_file(paths[0])
+array = util.open_file(paths[6])
 number_line = util.count_array(array)
 
 
@@ -20,7 +20,7 @@ number_line = util.count_array(array)
 
 
 
-util.print_array(array)
+#util.print_array(array)
 
 
 #comp, troca, tempo = sorting.SelectionSort(array)

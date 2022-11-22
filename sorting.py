@@ -46,9 +46,10 @@ def SelectionSort(array):
                 menor = j
             j +=1;
         
-        temp = array[i]
-        array[i] = array[menor]
-        array[menor] = temp
+        if(menor != i):
+            temp = array[i]
+            array[i] = array[menor]
+            array[menor] = temp
         
         i += 1
 
