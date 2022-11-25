@@ -35,7 +35,7 @@ def InsertionSort(array):
 def SelectionSort(array):
     ini = time.time()
     quantidade_troca = 0
-    quantidade_comparacao = 0
+    quantidade_comparacao = 1
     tempo_gasto = 0
 
     number_lines = util.count_array(array)
@@ -45,11 +45,14 @@ def SelectionSort(array):
         j = i + 1
 
         while(j < number_lines):
+            quantidade_comparacao += 1
             if(array[j][0] < array[menor][0]):
                 menor = j
             j += 1
 
+        quantidade_comparacao += 1
         if(menor != i):
+            quantidade_troca += 1
             temp = array[i]
             array[i] = array[menor]
             array[menor] = temp
@@ -67,57 +70,103 @@ def MergeSort(array):
     quantidade_troca = 0
     quantidade_comparacao = 0
     tempo_gasto = 0
-    
-    
-    
-    
-    
 
-    def ordena_mergesort(A, aux, esquerda, direita):
+    def ordena_mergesort(array, aux, esquerda, direita):
+        quantidade_comparacao += 1
         if direita <= esquerda:
             return
         meio = (esquerda + direita) // 2
 
         # Ordena a primeira metade do arranjo.
-        ordena_mergesort(A, aux, esquerda, meio)
+        ordena_mergesort(array, aux, esquerda, meio)
 
         # Ordena a segunda metade do arranjo.
-        ordena_mergesort(A, aux, meio + 1, direita)
+        ordena_mergesort(array, aux, meio + 1, direita)
 
         # Combina as duas metades ordenadas anteriormente.
-        merge(A, aux, esquerda, meio, direita)
+        merge(array, aux, esquerda, meio, direita)
 
-
-    def merge(A, aux, esquerda, meio, direita):
+    def merge(array, aux, esquerda, meio, direita):
 
         for k in range(esquerda, direita + 1):
-            aux[k] = A[k]
+            aux[k] = array[k]
         i = esquerda
         j = meio + 1
         for k in range(esquerda, direita + 1):
+            quantidade_comparacao += 1
             if i > meio:
-                A[k] = aux[j]
+                array[k] = aux[j]
                 j += 1
             elif j > direita:
-                A[k] = aux[i]
+                quantidade_comparacao += 1
+                array[k] = aux[i]
                 i += 1
             elif aux[j] < aux[i]:
-                A[k] = aux[j]
+                quantidade_comparacao += 1
+                array[k] = aux[j]
                 j += 1
             else:
-                A[k] = aux[i]
+                quantidade_comparacao += 1
+                array[k] = aux[i]
                 i += 1
 
-
-
     aux = [0] * len(array)
-    ordena_mergesort(array, aux, 0 , len(array) - 1)
-    
+    ordena_mergesort(array, aux, 0, len(array) - 1)
+
     fim = time.time()
     tempo_gasto = fim - ini
     return quantidade_comparacao, quantidade_troca, tempo_gasto
-        
+
 
 # QuickSort
-def QuickSort(self):
-    pass
+def QuickSort(array):
+    ini = time.time()
+    quantidade_troca = 0
+    quantidade_comparacao = 0
+    tempo_gasto = 0
+    
+    tamanho_array = len(array)
+    
+    def quick_sort(lista, inicio, fim, quantidade_comparacao, quantidade_troca):
+        quantidade_comparacao += 1
+        if inicio > fim:
+            return
+        anterior = inicio
+        posterior = fim
+        pivo = lista[inicio]
+
+        quantidade_comparacao += 1
+        while anterior < posterior:
+            quantidade_comparacao += 1
+
+            while anterior < posterior and lista[posterior] > pivo:
+                quantidade_comparacao += 1
+                posterior = posterior - 1
+
+            quantidade_comparacao += 1
+            if anterior < posterior:
+                lista[anterior] = lista[posterior]
+                anterior = anterior + 1
+                quantidade_troca +=1
+            
+            while anterior < posterior and lista[anterior] <= pivo:
+                quantidade_comparacao += 1
+                anterior = anterior + 1
+                
+            quantidade_comparacao += 1
+            
+            if anterior < posterior:
+                lista[posterior] = lista[anterior]
+                posterior = posterior - 1
+                quantidade_troca +=1
+
+            lista[anterior] = pivo
+            quantidade_troca +=1
+        quick_sort(lista, inicio, anterior - 1, quantidade_comparacao, quantidade_troca)
+        quick_sort(lista, anterior + 1, fim, quantidade_comparacao, quantidade_troca)
+
+    quick_sort(array, 0, tamanho_array - 1, quantidade_comparacao, quantidade_troca)
+
+    fim = time.time()
+    tempo_gasto = fim - ini
+    return quantidade_comparacao, quantidade_troca, tempo_gasto
