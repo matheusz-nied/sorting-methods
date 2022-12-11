@@ -1,7 +1,7 @@
 # sorting-methods
  
 
-Háá uma diferença de desempenho significativa entre o InsertionSort e SelectionSort comparados ao MergeSort e QuickSort.
+Nesses testes analisamos o desempenho de diferentes algoritmos de ordenação, onde há uma diferença de desempenho significativa entre o InsertionSort e SelectionSort comparados ao MergeSort e QuickSort.
 
 Os métodos InsertionSort e SelectionSort não costumar ser usados na prática, sendo algoritmos de complexidade O(n2).
 Já os algoritmos MergeSort e QuickSort não usados. Eles possuem complexidade de O(nlogn), onde o QuickSort apresenta um desempenho um pouco melhor entre os outros algoritmos de mesma complexidade. Ele apresenta um desempenho melhor em casos aleatórios, mas já nos piores casos, como a ordenação de dados em ordem decrescente, o QuickSort mostra um desempenho inferior comparado ao MergeSort. 
